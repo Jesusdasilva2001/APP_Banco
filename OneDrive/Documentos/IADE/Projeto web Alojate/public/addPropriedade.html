@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Propriedades</title>
+    <link rel="stylesheet" href="./javascripts/stylesheets/addPropriedade.css">
+  </head>
+  <body>
+    <header>
+      <h1>Add Propriedades</h1>
+    </header>
+    <div class="container">
+      <form>
+
+        <fieldset>
+          <legend>Detalhes do imóvel</legend>
+          <label for="typology">Tipologia</label>
+          <select name="property-size" id="property-size">
+            <option value="">Escolha</option>
+            <option value="0">T0</option>
+            <option value="1">T1</option>
+            <option value="2">T2</option>
+            <option value="3">T3</option>
+            <option value="4">T4</option>
+            <option value="5">T5+</option>
+          </select>
+          
+          <label for="type">Localização</label>
+          <select id="location" name="location" required>
+            <option value="">   Selecione a sua localização  </option>
+            <option value="Lisboa">Lisboa</option>
+            <option value="Porto">Porto</option>
+          </select>
+
+          <label for="type"></label>
+          <select id="freguesia" name="freguesia" required>
+            <option value="">  Freguesia  </option>
+            <option value="loures">Santos</option>
+            <option value="sintra">Alcantará</option>
+          </select>
+
+          <label for="type">Tipo:</label>
+          <select id="type" name="type" required>
+            <option value="">  Selecione o tipo de imovel </option>
+            <option value="apartmentos">Apartmentos</option>
+            <option value="Studio">Studios</option>
+            <option value="Casa">Casas</option>
+            <option value="Quartos">Quartos</option>
+          </select>
+
+          <div class="radio-container">
+            <label for="rent">Arrendar:</label>
+            <input type="radio" id="rent" name="sale_rent" value="rent" required>
+            <label for="sale">Vender</label>
+            <input type="radio" id="sale" name="sale_rent" value="sale" required>
+          </div>
+
+          <label for="price">Preço (em euros):</label>
+          <input type="number" id="price" name="price" required>
+          <label for="dimensions">Dimensões</label>
+          <input type="number" id="dimensions" name="dimensions" required>
+          <label for="description">Descrição</label>
+          <textarea id="description" name="description" rows="5"></textarea>
+          <label for="pictures">fotos:</label>
+          <input type="file" id="pictures" name="pictures" accept="image/*" multiple>
+          <label for="video">video:</label>
+          <input type="file" id="video" name="video" accept="video/*"multiple>
+        </fieldset>
+        <button type="submit">Submeter</button>
+
+      </form>
+      <div class="info-container">
+        <h2>O que precisas saber</h2>
+        <ul>
+          <li>Os imoveis podem ser: Moradias, apartamentos, quartos, etc.</li>
+          <li>O preço deve ser em euros.</li>
+          <li>As dimensões devem ser em números.</li>
+          <li>Você pode adicionar várias fotos.</li>
+        </ul>
+
+        <p>Observe que, como proprietário de uma nova casa, é importante entender seus direitos e responsabilidades. Recomendamos consultar um profissional jurídico para garantir que você tenha uma compreensão clara de suas obrigações.</p>
+      </div>
+    </div>
+  </body>
+</html>

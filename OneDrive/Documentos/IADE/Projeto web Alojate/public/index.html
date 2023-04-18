@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aloja-te</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="javascripts/stylesheets/style.css">
+</head>
+<body>
+   <header>
+    <img src="img/logo.png" />
+
+    <div>
+        <a href="login.html">Log In</a>
+        <a href="signup.html">Sign Up</a>
+        <a href="addPropriedade.html">Adicionar Imóveis</a>
+    </div>
+   </header>
+
+   <div class="banner">
+    <h1>Find and book your ideal place for months</h1>
+    <p>Rent quality homes with all guarantess, 100% online</p>
+   </div>
+
+   <div class="descriptions">
+    <div>
+      <h1>O que pretendes?</h1>
+
+      <select name="property-type" id="property-type">
+        <option value=""> Tipo de imóvel </option>
+        <option value="apartamento">Apartamento</option>
+        <option value="moradia">Moradia</option>
+        <option value="quarto">Quarto</option>
+      </select>
+
+      <select name="property-size" id="property-size">
+        <option value="">Tipologia</option>
+        <option value="0">T0</option>
+        <option value="1">T1</option>
+        <option value="2">T2</option>
+        <option value="3">T3</option>
+        <option value="4">T4</option>
+        <option value="5">T5+</option>
+      </select>
+
+      <select name="country" id="country">
+        <option value="">Escolha um país</option>
+        <option value="portugal">Portugal</option>
+      </select>
+
+      <select name="district" id="district">
+        <option value="">Distrito</option>
+        <option value="lisboa">Lisboa</option>
+        <option value="porto">Porto</option> 
+        <option value="setúbal">setúbal</option>
+        <option value="coimbra">coimbra</option>
+      </select>
+    </div>
+
+    <div>
+      <h1>Localização</h1>
+      <label for="purpose"></label>
+      <select name="purpose" id="purpose">
+        <option value="">País</option>
+        <option value="venda">Portugal</option>
+      </select>
+
+      <select name="condition" id="condition">
+        <option value="">Distrito</option>
+        <option value="novo">Lisboa</option>
+        <option value="usado">Porto</option>
+        <option value="usado">Santarém</option>
+        <option value="usado">setúbal</option>
+        <option value="usado">Vila real</option>
+        <option value="usado">Viana do castelo</option>
+        <option value="usado">Leiria</option>
+      </select>
+
+      <select name="condition" id="condition">
+        <option value="">Concelho</option>
+        <option value="novo">Amadora</option>
+        <option value="usado">Lisboa</option>
+        <option value="usado">Caicais</option>
+        <option value="usado">Loures</option>
+        <option value="usado">Odivelas</option>
+        <option value="usado">Sintra</option>
+        <option value="usado">Torres Vedras</option>
+      </select>
+
+      <select name="condition" id="condition">
+        <option value="">Frequesia</option>
+        <option value="novo">Ajuda</option>
+        <option value="usado">Alcântara</option>
+        <option value="usado">Santos</option>
+      </select>
+
+    </div>
+
+    <div>
+      <h1>Finalidade</h1>
+      <label for="purpose"></label>
+      <select name="purpose" id="purpose">
+        <option value="">Objectivo</option>
+        <option value="venda">Venda</option>
+        <option value="arrendar">Arrendamento</option>
+      </select>
+
+      <select name="condition" id="condition">
+        <option value="">Estado</option>
+        <option value="novo">Novo</option>
+        <option value="usado">Usado</option>
+        <option value="usado">Em construção</option>
+        <option value="usado">Para remodelar</option>
+      </select>
+      
+    </div>
+
+ 
+    <div class="amount">
+      <div>
+        <h1 for="price">Preço</h1>
+        <input type="range" name="price" id="price" min="0" max="1000000" step="1000">
+        <span class="price-icon">€</span>
+      </div>
+  
+      <div>
+        <h1 for="area">Área</h1>
+        <input type="range" name="area" id="area" min="0" max="5000" step="100">
+      </div>
+    </div>
+    
+
+
+   <table>
+    <tr>
+        <td><input type="checkbox" id="option1" name="option1" value="Option 1"><label for="option1">Oportunidade</label></td>
+        <td><input type="checkbox" id="option2" name="option2" value="Option 2"><label for="option2">Residêncial</label></td>
+        <td><input type="checkbox" id="option3" name="option3" value="Option 3"><label for="option3">Baixa de preço</label></td>
+        <td><input type="checkbox" id="option3" name="option3" value="Option 3"><label for="option3">Com visita virtual</label></td>
+    </tr>
+
+    
+   </table>
+
+   <div>
+    <a href="listarPropriedade.html">submeter</a>
+   </div>
+
+   
+  </div>
+   
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.container {
+    background-color: #f7f7f7;
+    padding: 20px;
+    width: 100%;
+    border: 1px solid #ccc;
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    background-color: white;
+    width: calc(100% / 3);
+    border: 1px solid #ccc;
+}
+
+.overlay {
+    position: relative;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    opacity: 1;
+    transition: 0.5s ease;
+    -webkit-transition: 0.5s ease;
+    -moz-transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    -ms-transition: 0.5s ease;
+}
+
+.overlay .middle {
+    text-align: center;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.5s ease;
+    -webkit-transition: 0.5s ease;
+    -moz-transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    -ms-transition: 0.5s ease;
+}
+
+.overlay:hover img {
+    opacity: 0.3;
+}
+
+.overlay:hover .middle {
+    opacity: 1;
+}
+
+.text {
+    background-color: teal;
+    color: white;
+    padding: 16px 24px;
+    cursor: pointer;
+}
+
+.info {
+    padding: 20px;
+}
+
+.info .description {
+    color: #757575;
+    line-height: 1.5;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.wrapper .fa-solid {
+    color: teal;
+    margin-right: 5px;
+}
+
+.price {
+    font-weight: bold;
+}
+
+.price span {
+    color: teal;
+    margin-top: 16px;
+    font-size: 20px;
+    display: block;
+}
+
+.hot {
+    position: relative;
+}
+
+.hot::before {
+    content: "Hot";
+    background-color: crimson;
+    color: white;
+    padding: 5px 8px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 10;
+}
+  

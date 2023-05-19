@@ -10,7 +10,8 @@ async function signup() {
             msgDOM.textContent = "Account created. Go to login page";
         } else {
             msgDOM.textContent = "Was not able to register";
-            window.location.pathname = "../login.html";
+            window.location.pathname = "./login.html";
+            window.location.pathname = "./index2.html";
         }      
     } catch (err) {
         console.log(err);

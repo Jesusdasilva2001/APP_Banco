@@ -10,7 +10,7 @@ app.post('/recuperar-senha', (req, res) => {
       from: 'seu_email@gmail.com', // E-mail de envio
       to: email, // E-mail do destinatário (usuário que solicitou a recuperação de senha)
       subject: 'Recuperação de Senha',
-      html: `Olá,<br><br>Você solicitou a recuperação de senha.<br>Seu token de recuperação é: <b>${token}</b>.<br>Por favor, utilize este token para redefinir sua senha.<br><br>Atenciosamente,<br>Equipe do Site`,
+      html: `Olá,<br><br>Você solicitou a recuperação de senha.<br>Seu token de recuperação é: <b>${token}</b>.<br>Por favor, utilize este token para redefinir sua senha.<br><br>`,
     };
   
     transporter.sendMail(mailOptions, (error, info) => {

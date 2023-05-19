@@ -1,4 +1,4 @@
-create database alojate
+create database aloja-te
 -- Create the database with the name: alojate
 
 
@@ -20,13 +20,14 @@ create table propriedades (
     garagens INTEGER NOT NULL,
     area INTEGER NOT NULL,
     preco DECIMAL(10, 2) NOT NULL,
+    coordenadas DECIMAL(10, 2) NOT NULL,
     primary key (id_propriedades)
 );
 
 create table contratos (
     id SERIAL PRIMARY KEY,
     propriedade_id INTEGER REFERENCES propriedades(id),
-    cliente_id INTEGER REFERENCES clientes(id),
+    utilizador_id INTEGER REFERENCES utilizadores(id),
     tipo_contrato VARCHAR(50) NOT NULL,
     data_inicio DATE NOT NULL,
     data_fim DATE NOT NULL,
@@ -68,10 +69,46 @@ create table propriedade_recursos (
 create table reserva (
     id SERIAL PRIMARY KEY,
     propriedade_id INTEGER REFERENCES propriedades(id),
-    cliente_id INTEGER REFERENCES clientes(id),
+    utilizador_id INTEGER REFERENCES utilizadores(id),
     data_inicio DATE NOT NULL,
     data_fim DATE NOT NULL,
     valor_total DECIMAL(10, 2) NOT NULL,
     status VARCHAR(20) NOT NULL,
     primary key (id_reserva)
 );
+
+-- Foreign keys
+
+alter table contratos add constraint fk_contratos_propriedades 
+        foreign key (id_propriedade) references propriedades (id);
+        ON DELETE ACTION ON UPDATE NO ACTION;
+
+alter table contratos add constraint fk_contratos_client
+        foreign key (id_utilizador) references contratos (id);
+        ON DELETE ACTION ON UPDATE NO ACTION;
+
+alter table fotos add constraint fk_fotos_propriedades
+        foreign key (id_propriedade) references propriedades (id);
+        ON DELETE ACTION ON UPDATE NO ACTION;
+
+alter table propriedade_recursos add constraint fk_recursos_propriedades
+        foreign key (id_propriedade) references propriedades (id);
+        ON DELETE ACTION ON UPDATE NO ACTION;
+
+alter table propriedade_recursos add constraint fk_propriedade_recursos_propriedades
+        foreign key (id_propriedade) references propriedades (id);
+        ON DELETE ACTION ON UPDATE NO ACTION;
+
+alter table reserva add constraint fk_reserva_propriedades
+        foreign key (id_propriedade) references propriedade (id);
+        ON DELETE ACTION ON UPDATE NO ACTION;
+
+alter table reserva add constraint fk_reserva_utilizadores
+        foreign key (id_utilizador) references utilizador (id);
+        ON DELETE ACTION ON UPDATE NO ACTION;
+
+
+
+
+
+        

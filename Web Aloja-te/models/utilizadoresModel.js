@@ -66,12 +66,12 @@ class Utilizador {
     static async checkLogin(utilizador) {
         try {
             let dbResult =
-                await pool.query("Select * from utilizador where usr_email=$1", [utilizador.usr_email]);
+                await pool.query("Select * from utilizador where usr_email=$1", [utilizador.email]);
             let dbUtilizadores = dbResult.rows;
             if (!dbUtilizadores.length)
                 return { status: 401, result: { msg: "Wrong email or pass!"}};
-            let dbUtilizador = dbUtilizadores[0]; 
-            let isPass = await bcrypt.compare(usr_pass,dbUtilizador.usr_pass);
+            let dbUtilizador = dbUtilizadores[0];  
+            let isPass = await bcrypt.compare(utilizador.pass,dbUtilizador.usr_pass);
             if (!isPass) 
                 return { status: 401, result: { msg: "Wrong email or pass!"}};
            
@@ -80,6 +80,8 @@ class Utilizador {
             console.log(err);
             return { status: 500, result: err };
         }
+
+
     }
 
     // No verifications. Only to use internally
@@ -87,7 +89,7 @@ class Utilizador {
         try {
             let dbResult =
                 await pool.query(`Update utilizador set usr_token=$1 where usr_id = $2`,
-                [utilizador.token,usr.id]);
+                [utilizador.token,utilizador.id]);
             return { status: 200, result: {msg:"Token saved!"}} ;
         } catch (err) {
             console.log(err);
@@ -95,6 +97,9 @@ class Utilizador {
         }
     }
 
+    
+
+    
     static async getUtilizadorByToken(token) {
         try {
             let dbResult =

@@ -11,7 +11,7 @@ async function login() {
             msgDOM.textContent = "Wrong email or pass";    
         } else {
             msgDOM.textContent = "Login successful!";    
-            window.location.pathname = "./index.html";
+            window.location.pathname = "./index2.html";
         }
     } catch (err) {
         console.log(err);

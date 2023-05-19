@@ -62,8 +62,10 @@ header h1 {
 }
 
 nav {
-	display: flex;
-	align-items: center;
+	width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
 }
 
 .user-menu {
@@ -214,3 +216,8 @@ nav {
 	margin-bottom: 10px;
 }
 
+.logo-img{
+	width: 250px;
+	height: 70px;
+	object-fit: cover;
+}

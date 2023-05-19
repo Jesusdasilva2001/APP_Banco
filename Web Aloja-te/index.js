@@ -18,10 +18,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 const utilizadoresRouter = require("./routes/utilizadoresRoutes");
-
+const propriedadeRouter = require("./routes/propriedadeRoutes")
 
 
 app.use("/api/utilizadores",utilizadoresRouter);
+app.use("/api/propriedade",propriedadeRouter);
 
 
 // when we don't find anything
@@ -35,7 +36,7 @@ app.use((err, req, res, next) => {
   res.status(500).send(err);
 })
 
-const port = parseInt(process.env.port || '8080');
+const port = parseInt(process.env.port || '8081');
 app.listen(port,function() {
   console.log("Server running at http://localhost:"+port);
 });

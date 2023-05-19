@@ -6,7 +6,7 @@ INSERT INTO propriedades (tipo, endereco, quartos, banheiros, garagens, area, pr
 ('Sítio', 'Estrada C, Km 10', 5, 3, 0, 500, 1500000.00);
 
 
-INSERT INTO utilizadores (username, email, password) VALUES 
+INSERT INTO utilizadores (usr_name, email, password) VALUES 
 ('João Silva', 'joao.silva@example.com', '123456'),
 ('Maria Santos', 'maria.santos@example.com', 'abcdef');
 

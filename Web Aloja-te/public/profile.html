@@ -4,42 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
     <link rel="stylesheet" href="./javascripts/stylesheets/profile.css">
-    <title>Document</title>
+    <script src="./javascripts/utils/verification.js"></script>
+    <script src="./javascripts/requests/utilizadoresRequest.js"></script>
+    <script src="./javascripts/profile.js"></script>
+    
 </head>
 <body>
 
-    <h1>Editar informações da conta</h1>
+    <header>
+        <h2><span id="utlizador">Hello______</span>
+            <input type="button" value="Logout" onclick="logout()"></h2>
+        <h1>Profile page</h1>
+    </header>
 
-    <form method="post" enctype="multipart/form-data">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
+    <ul>
+        <a href="index.html">Go to Homepage</a>
+    </ul>
 
-        <label for="profile-pic">Profile Picture:</label>
-        <input type="file" id="profile-pic" name="profile-pic"><br><br>
-
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" pattern="^+?\d{1,4}[\s-]?\d{1,15}$" required><br><br>
-
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" minlength="8" required><br><br>
-
-        <label for="confirm-password">Confirm Password:</label>
-        <input type="password" id="confirm-password" name="confirm-password" minlength="8" required><br><br>
-
-        <input type="submit" value="Save Changes">
-    </form>
-
-    <br>
-
-    <form method="post">
-        <input type="submit" name="delete-account" value="Delete Account">
-    </form>
-    <script src="./javascripts/verification.js"></script>
-
+    
 </body>
 </html>

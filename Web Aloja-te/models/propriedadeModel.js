@@ -48,17 +48,15 @@ class Propriedade {
     static async getAll() {
         try {
             let dbResult = await pool.query("SELECT * from propriedades");
-            let dbPropriedades = dbResult.rows;
-            if (!dbPropriedades.length){
+            let dbpropriedades = dbResult.rows;
+            if (!dbpropriedades.length){
                 return { status: 401, result: { msg: "Wrong!"}};
             }
             let propriedades = [];
-            for( let prop of dbPropriedades) {
+            for( let prop of dbpropriedades) {
                 propriedades.push(dbPropriedadeToPropriedade(prop));
             }
-                return { status: 404, result:{msg: ""} } ;
-            let dbPropriedade = dbPropriedades[0];
-            return { status: 200, result: propriedades}
+                return { status: 200, result: propriedades } ;
         } catch (err) {
             console.log(err);
             return { status: 500, result: err };
@@ -80,12 +78,12 @@ class Propriedade {
         }
     }
 
-    static async addPropriedade() {
+    static async addpropriedade() {
         try {
            
             let dbResult = await pool.query(
                 `Insert into propriedade(it_prop_id,it_type,it_apartment, it_rooms,it_bathroom, it_price, it_address, it_garages, it_area, it_coordenadas)
-                 values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)`, [propriedadeId, type, apartment, rooms, bathroom, price, address, garages, area, coordenadas]);
+                 values($1,$2,$3,$4,$5,$6,$7,$8,$9)`, [type, apartment, rooms, bathroom, price, address, garages, area, coordenadas]);
             return {status:200, result: dbResult};
 
         } catch (err) {

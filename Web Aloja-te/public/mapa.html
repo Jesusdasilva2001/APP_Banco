@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aloja-te</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./javascripts/stylesheets/mapa.css">
+    <script defer src="./javascripts/mapa.js"></script>
+</head>
+<body>
+  <header>
+    <img src="./image/logo.png" />
+
+    <div>
+      <a href="login.html">Log In</a>
+      <a href="signup.html">Sign Up</a>
+      <a href="addPropriedade.html">Adicionar Imóveis</a>
+    </div>
+       </header>
+       <br>
+       <br>
+       <h2>Pesquisa avançada</h2>
+       <br>
+       <br>
+       <section>
+  <div id="map-canvas" style="height: 600px; width: 1900px; margin-left: 0px;"></div>
+
+
+  <h4></h4>
+  <div id="info" style="position:absolute; color:red; font-family: Arial; height:200px; font-size: 12px;"></div>
+
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGoaAfIJkrNOclNcbPJKhsyv4G1FynOH4&libraries=drawing"></script>
+  <script src="C:\Users\kiala\OneDrive\Imagens\NEWMAPA\drawMap.js"></script>
+</main>
+</section>
+<br>
+       <br>
+<section>
+  <div class="descriptions">
+    <div>
+      <h1>O que pretendes?</h1>
+
+      <select name="property-type" id="property-type">
+        <option value=""> Tipo de propriedades </option>
+        <option value="apartamento">Apartamento</option>
+        <option value="moradia">Moradia</option>
+        <option value="quarto">Quarto</option>
+      </select>
+
+      <select name="property-size" id="property-size">
+        <option value="">Tipologia</option>
+        <option value="0">T0</option>
+        <option value="1">T1</option>
+        <option value="2">T2</option>
+        <option value="3">T3</option>
+        <option value="4">T4</option>
+      </select>
+    </div>
+
+    <div>
+      <h1>Localização</h1>
+      <label for="purpose"></label>
+      <select name="purpose" id="purpose">
+        <option value="">Escolha um país</option>
+        <option value="venda">Portugal</option>
+      </select>
+
+      <select name="condition" id="condition">
+        <option value="">Distrito</option>
+        <option value="novo">Lisboa</option>
+      </select>
+
+      <select name="condition" id="condition">
+        <option value="">Concelho</option>
+        <option value="novo">Lisboa</option>
+        <option value="usado">Amadora</option>
+        <option value="usado">Loures</option>
+      </select>
+
+      <select name="condition" id="condition">
+        <option value="">Freguesia</option>
+        <option value="novo">Ajuda</option>
+        <option value="usado">Alcântara</option>
+        <option value="usado">Santos</option>
+        <option value="novo">Benfica</option>
+        <option value="usado">Olivais</option>
+      </select>
+
+    </div>
+
+    <div>
+      <h1>Finalidade</h1>
+      <label for="purpose"></label>
+      <select name="purpose" id="purpose">
+        <option value="">Objectivo</option>
+        <option value="venda">Venda</option>
+        <option value="arrendar">Alugar</option>
+      </select>
+
+      <select name="condition" id="condition">
+        <option value="">Estado</option>
+        <option value="novo">Novo</option>
+        <option value="usado">Usado</option>
+        <option value="usado">Em construção</option>
+        <option value="usado">Para remodelar</option>
+      </select>
+      
+    </div>
+
+ 
+    <div class="amount">
+      <div>
+        <h1 for="price">Preço</h1>
+        <input type="range" name="price" id="price" min="0" max="1000000" step="1000">
+        <span class="price-icon">€</span>
+      </div>
+  
+      <div>
+        <h1 for="area">Área</h1>
+        <input type="range" name="area" id="area" min="0" max="5000" step="100">
+      </div>
+    </div>
+    
+
+
+   <table>
+    <tr>
+        <td><input type="checkbox" id="option1" name="option1" value="Option 1"><label for="option1">Oportunidade</label></td>
+        <td><input type="checkbox" id="option2" name="option2" value="Option 2"><label for="option2">Residêncial</label></td>
+        <td><input type="checkbox" id="option3" name="option3" value="Option 3"><label for="option3">Baixa de preço</label></td>
+        <td><input type="checkbox" id="option3" name="option3" value="Option 3"><label for="option3">Com visita virtual</label></td>
+    </tr>
+
+    
+   </table>
+
+   
+  <footer class="footer">
+    Aloja-te - Todos os direitos reservados
+  </footer>
+   
+
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Property Listings</title>
+	<link rel="stylesheet" type="text/css" href="C:\Users\kiala\OneDrive\Documentos\HTML\LISTING\style.css">
+	<link rel="stylesheet" type="text/css" href="cardcss.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="./javascripts/stylesheets/style2.css">
+</head>
+<body>
+	<header>
+		<nav>
+			<div class="header">
+				<div class="logo">
+				  <a href="#"><img src="./image/logo.png" alt="logo"></a>
+				</div>
+				<div class="user-icon dropdown">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+						<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+						<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+				  </svg>
+				  <div class="dropdown-content">
+					<a href="#">Sign In</a>
+					<a href="#">Sign Up</a>
+					<a href="#">Account Settings</a>
+					<li><hr class="dropdown-divider"></li>
+					<a href="#">About Us</a>
+				  </div>
+				</div>
+				<ul>
+				  <li><a href="#">Home</a></li>
+				  <li><a href="#">Sobre nos</a></li>
+				  <li><a href="#">Contactos</a></li>
+				</ul>
+			  </div>
+			  
+			  <style>
+				.header {
+				  background-color: #ffffff;
+				  display: flex;
+				  justify-content: space-between;
+				  align-items: center;
+				  height: 70px;
+				  padding: 0 20px;
+				}
+			  
+				.logo {
+				  margin-right: auto;
+				}
+			  
+				.user-icon {
+				  position: relative;
+				  cursor: pointer;
+				}
+			  
+				.user-icon:hover .dropdown-content {
+				  display: block;
+				}
+			  
+				.dropdown {
+				  display: inline-block;
+				}
+			  
+				.dropdown-content {
+				  display: none;
+				  position: absolute;
+				  top: 100%;
+				  right: 0;
+				  background-color: #ffffff;
+				  min-width: 160px;
+				  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+				  z-index: 1;
+				}
+			  
+				.dropdown-content a {
+				  display: block;
+				  color: #ffffff;
+				  padding: 10px;
+				  text-decoration: none;
+				}
+			  
+				.dropdown-content a:hover {
+				  background-color: #fffefe;
+				}
+			  
+				ul {
+				  list-style-type: none;
+				  margin: 0;
+				  padding: 0;
+				  display: flex;
+				  align-items: center;
+				}
+			  
+				li {
+				  margin-left: 10px;
+				}
+			  
+				li a {
+				  display: block;
+				  color: rgb(0, 0, 0);
+				  text-align: center;
+				  padding: 14px 16px;
+				  text-decoration: none;
+				}
+			  
+				li a:hover:not(.active) {
+				  background-color: #ffffff;
+				}
+			  
+				img {
+				  height: 30px;
+				}
+
+				.logo img{
+					width: 250px;
+					height: 70px;
+					object-fit: cover;
+				}
+			  </style>
+     </header>
+
+<!-- header section ends -->
+
+<!-- view property section starts  -->
+
+<section class="view-property">
+
+   <div class="details">
+      <div class="thumb">
+         <div class="big-image">
+            <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?cs=srgb&dl=architecture-family-house-front-yard-106399.jpg" alt="">
+         </div>
+         <div class="small-images">
+            <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?cs=srgb&dl=architecture-family-house-front-yard-106399.jpg" alt="">
+            <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?cs=srgb&dl=architecture-family-house-front-yard-106399.jpg" alt="">
+            <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?cs=srgb&dl=architecture-family-house-front-yard-106399.jpg" alt="">
+            <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?cs=srgb&dl=architecture-family-house-front-yard-106399.jpg" alt="">
+         </div>
+      </div>
+      <h3 class="name">Apartamento</h3>
+      <p class="location"><i class="fas fa-map-marker-alt"></i><span>Lisboa, Portugal</span></p>
+      <div class="info">
+         <p><i class="fas fa-tag"></i><span></span></p>
+         <p><i class="fas fa-user"></i><span>Jesus Tamba (owner)</span></p>
+         <p><i class="fas fa-phone"></i><a href="tel:1234567890">1234567890</a></p>
+         <p><i class="fas fa-building"></i><span>Apartamento</span></p>
+         <p><i class="fas fa-house"></i><span>A venda</span></p>
+         <p><i class="fas fa-calendar"></i><span>10-05-2023</span></p>
+      </div>
+      <h3 class="title">detalhes</h3>
+      <div class="flex">
+         <div class="box">
+            <p><i>Preço: 1000 euros</i><span>0</span></p>
+            <p><i>Status :</i><span>Pronto a entrada</span></p>
+            <p><i>Quartos:</i><span>3</span></p>
+            <p><i>Casas de banho:</i><span>2</span></p>>
+         </div>
+         <div class="box">
+            <p><i>Area:</i><span>200m2</span></p>
+            <p><i>Estado:</i><span>usado</span></p>
+         </div>
+      </div>
+      <h3 class="title">description</h3>
+      <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum cupiditate aliquid ipsum recusandae maxime nisi, velit eaque, libero, exercitationem culpa accusamus. Neque dolor quaerat modi saepe facere dignissimos temporibus molestias.</p>
+      <form action="" method="post">
+         <input type="submit" value="save property" name="save" class="inline-btn">
+      </form>
+   </div>
+
+</section>
+
+
+<footer class="footer">
+
+
+   <div class="credit">&copy; Aloja-te @ 2023 by | Todos os direitos reservados!</div>
+
+</footer>
+
+
+
+
+<script src="./script2.js"></script>
+
+</body>
+</html>

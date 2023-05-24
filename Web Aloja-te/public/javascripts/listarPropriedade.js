@@ -1,5 +1,19 @@
+window.onload = async function() {
+    //let filter = sessionStorage.getItem("filter");
+    //mandar objeto de filter    
+    fetch ("http://localhost:8080/api/Propriedade").then(response => {
+        response.json().then(propriedades => {
+            populatePropriedades (propriedades); 
+        }) .catch(error => console.log (error));
+
+    }).catch(error => console.log (error));
+}
+
+
+
+
 function populatePropriedades(propriedades) {
-    let container = document.getElementById("shoplists");
+    let container = document.getElementById("");
     for (let prop of propriedades) {
         let li = document.createElement("li");
         li.textContent = prop.name;
@@ -14,26 +28,31 @@ function openPropriedade(id) {
 }
 
 function populatePropriedades(propriedades) {
-    let container = document.getElementById("propriedades");
-    for (let it of propriedades) {
-        let li = document.createElement("li");
-        let img = document.createElement("img");
-        if (it.img) {
-            img.src = it.img;
-        } else {
-            img.src = "https://images.unsplash.com/photo-1501080254287-69204825cf5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODB8fGhvdXNlJTIwaW4lMjBsaXNib258ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60";
-            img.src = "https://images.unsplash.com/photo-1448630360428-65456885c650?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cGVudCUyMGhvdXNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60";
-        }   
-        li.appendChild(img);
-        let sec = document.createElement("div");
-        li.appendChild(sec);
-        // For the div
-        let name = document.createElement("");
-        name.textContent = it.type;
-        sec.appendChild(type);
-        let apartment = document.createElement("p");
-        apartment.textContent = ``;
-        sec.appendChild(apartment);
-        container.appendChild(li);
+    const parentElement = document.querySelector(".box-container")
+    for (const propriedade of propriedades) {
+        propriedade.image = "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?cs=srgb&dl=architecture-family-house-front-yard-106399.jpg"
+        const boxElement = document.createElement("div")
+        boxElement.classList.add("box")
+        boxElement.innerHTML = `
+            <div class="thumb">
+                <p class="total-images"><i class="far fa-image"></i><span>4</span></p>
+                <p class="type"><span>${propriedade.type}</span><span>sale</span></p>
+                <form action="" method="post" class="save">
+                    <button type="submit" name="save" class="far fa-heart"></button>
+                </form>
+                <img src="${propriedade.image}" alt="">
+            </div>
+            <h3 class="name">modern flats and appartments</h3>
+            <p class="location"><i class="fas fa-map-marker-alt"></i><span>${propriedade.address}</span></p>
+            <div class="flex">
+                <p><i class="fas fa-bed"></i><span>${propriedade.rooms}</span></p>
+                <p><i class="fas fa-bath"></i><span>${propriedade.bathroom}</span></p>
+                <p><i class="fas fa-maximize"></i><span>750sqft</span></p>
+            </div>
+            <a href="http://localhost:8080/view_propriedade.html" class="btn">view property</a>
+        `
+        parentElement.appendChild(boxElement)
     }
 }
+
+

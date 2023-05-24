@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 const utilizadoresRouter = require("./routes/utilizadoresRoutes");
-const propriedadeRouter = require("./routes/propriedadeRoutes")
+const propriedadeRouter = require("./routes/propriedadeRoutes");
 
 
 app.use("/api/utilizadores",utilizadoresRouter);

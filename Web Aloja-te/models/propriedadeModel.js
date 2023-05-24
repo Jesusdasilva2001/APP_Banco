@@ -15,11 +15,15 @@ function dbPropriedadeToPropriedade(dbPropriedade)  {
     propriedade.garages = dbPropriedade.garages;
     propriedade.area = dbPropriedade.area;
     propriedade.coordenadas = dbPropriedade.coordenadas;
+    propriedade.alugada = dbPropriedade.alugada;
+    propriedade.comprada = dbPropriedade.comprada;
+    propriedade.vendida = dbPropriedade.vendida;
+    propriedade.imagem = dbPropriedade.imagem;
     return propriedade;
 }
 
 class Propriedade {
-    constructor(id, type, apartment, rooms, bathroom, price, address, garages, area, coordenadas) {
+    constructor(id, type, apartment, rooms, bathroom, price, address, garages, area, coordenadas, alugada, comprada, vendida, imagem) {
         this.id = id;
         this.type = type;
         this.apartment = apartment;
@@ -30,6 +34,10 @@ class Propriedade {
         this.garages = garages;
         this.area = area;
         this.coordenadas = coordenadas;
+        this.alugada = alugada;
+        this.comprada = comprada;
+        this.vendida = vendida;
+        this.imagem = imagem;  
     }
     export() {
         let propriedade=new Propriedade();
@@ -41,17 +49,68 @@ class Propriedade {
         propriedade.address = this.address;
         propriedade.garages = this.garages;
         propriedade.area = this.area;
-        propriedade.coordenadas = this.coordenadas
+        propriedade.coordenadas = this.coordenadas;
+        propriedade.alugada = this.alugada;
+        propriedade.comprada = this.comprada;
+        propriedade.vendida = this.vendida;
+        propriedade.imagem = this.imagem;
         return propriedade; 
     }
 
-    static async getAll() {
+    static async getAll(filters) {
         try {
-            let dbResult = await pool.query("SELECT * from propriedades");
+            //verificar se o filtro existe
+            //select com os parametros dos filtros
+               let query = 'SELECT * FROM propriedades WHERE 1 = 1 ';
+               let params = [];
+               let i = 1;
+               if (filters.propriedadeType) {
+                    query += `AND type = $${i++} `;
+                    params.push(filters.propriedadeType);
+                }
+                if (filters.price) {
+                    query += `AND price <= $${i++} `;
+                    params.push(filters.price);
+                }
+                if (filters.area) {
+                    query += `AND area <= $${i++} `;
+                    params.push(filters.area);
+                }
+                if (filters.tipologia) {
+                    query += `AND tipologia = $${i++}`;
+                    params.push(filters.tipologia);
+                }
+                if (filters.portugal) {
+                    query += `AND portugal = $${i++}`;
+                    params.push(filters.portugal);
+                }
+                if (filters.distrito) {
+                    query += `AND distrito = $${i++}`;
+                    params.push(filters.distrito);
+                }
+                if (filters.concelho) {
+                    query += `AND concelho = $${i++}`;
+                    params.push(filters.concelho);
+                }
+                if (filters.freguesia) {
+                    query += `AND freguesia = $${i++}`;
+                    params.push(filters.freguesia);
+                }
+                if (filters.objectivo) {
+                    query += `AND objectivo = $${i++}`;
+                    params.push(filters.objectivo);
+                }
+                if (filters.estado) {
+                    query += `AND estado = $${i++}`;
+                    params.push(filters.estado)
+                }
+            console.log(query);
+            console.log(params);
+            let dbResult = await pool.query(query,params);
             let dbpropriedades = dbResult.rows;
-            if (!dbpropriedades.length){
+           /* if (!dbpropriedades.length){
                 return { status: 401, result: { msg: "Wrong!"}};
-            }
+            }*/
             let propriedades = [];
             for( let prop of dbpropriedades) {
                 propriedades.push(dbPropriedadeToPropriedade(prop));
@@ -78,12 +137,12 @@ class Propriedade {
         }
     }
 
-    static async addpropriedade() {
+    static async addpropriedade(propriedade) {
         try {
            
             let dbResult = await pool.query(
                 `Insert into propriedade(it_prop_id,it_type,it_apartment, it_rooms,it_bathroom, it_price, it_address, it_garages, it_area, it_coordenadas)
-                 values($1,$2,$3,$4,$5,$6,$7,$8,$9)`, [type, apartment, rooms, bathroom, price, address, garages, area, coordenadas]);
+                 values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)`, [propriedade.type, propriedade.apartment, propriedade.rooms, propriedade.bathroom, propriedade.price, propriedade.address, propriedade.garages, propriedade.area, propriedade.coordenadas, propriedade.alugada, propriedade.comprada, propriedade.vendida, propriedade.imagem]);
             return {status:200, result: dbResult};
 
         } catch (err) {

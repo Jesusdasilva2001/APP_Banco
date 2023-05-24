@@ -1,365 +1,166 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Propriedade</title>
-	<link rel="stylesheet" type="text/css" href="./javascripts/stylesheets/listarPropriedade.css">
-	<link rel="stylesheet" type="text/css" href="./javascripts/stylesheets/cardcss.css">
-	<script src="../models/propriedadeModel.js"></script>
-	<script src="../public/javascripts/listarPropriedade.js"></script>
-	<script src="../public/javascripts/requests/propriedadeRequest.js"></script>
+	<title>Property Listings</title>
+	<link rel="stylesheet" type="text/css" href="">
+	<link rel="stylesheet" type="text/css" href="cardcss.css">
+    <link rel="stylesheet" href="./javascripts/stylesheets/style2.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+	<script defer src="./javascripts/listarPropriedade.js"></script>
+
 </head>
 <body>
 	<header>
-		
-		<div class="header">
-			<div class="logo">
-				<img src="./image/logo.png" />
-			</div>
-				
-
-			<nav>
-				<ul>
-					<a href="index.html">Home</a>
-					<a href="listarPropriedade.html">Sobre Nós</a>
-					<a href="">Contactos</a>
-				</ul>
-
+		<nav>
+			<div class="header">
+				<div class="logo">
+				  <a href="#"><img src="./image/logo.png" alt="logo"></a>
+				</div>
 				<div class="user-icon dropdown">
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
 						<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
 						<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-					</svg>
-					<div class="dropdown-content">
-						<a href="signup.html">Sign up</a>
-						<a href="login.html">Login</a>
-						<a href="EditarConta.html">Editar informações da conta</a>
-						<a href="profile.html">Logout</a>
-						<a href="Sobrenos.html">Sobre nos</a>
-					</div>
+				  </svg>
+				  <div class="dropdown-content">
+					<a href="login.html">Login</a>
+					<a href="signup.html">Sign Up</a>
+					<a href="profile.html">logout</a>
+				  </div>
 				</div>
-			</nav>
-
-				
-		</div>
-			  
-			 
-			  
-		
-			
-		
-	</header>
-
-	<main>
-		<form>
-			<label for="property-type">Property Type:</label>
-			<select id="property-type">
-				<option value="">All</option>
-				<option value="Moradia">Moradia</option>
-				<option value="apartmento">Apartment</option>
-				<option value="estudio">Estudio</option>
-			</select>
-
-			<label for="transaction-type">Efeito:</label>
-			<select id="transaction-type">
-				<option value="">Todos</option>
-				<option value="Venda">Venda</option>
-				<option value="Alugar">Alugar</option>
-				<option value="Comprar">Comprar</option>
-			</select>
-
-			<label for="property-age">Estado:</label>
-			<select id="property-age">
-				<option value="">Todos</option>
-				<option value="Novo">Nova Construção</option>
-				<option value="Usado">usado</option>
-			</select>
-			<label for="location">Localização</label>
-			<select id="location">
-				<option value="">Todos</option>
-				<option value="lisbon">Lisbon</option>
-				<option value="porto">Porto</option>
-			</select>
-			<label for="Tipologia">Tipologia</label>
-			<select id="Tipologia">
-				<option value="">Todos</option>
-				<option value="T1">T1</option>
-				<option value="T2">T2</option>
-				<option value="T3">T3</option>
-				<option value="T4+">T4+</option>
-			</select>
-			
-
-			<label for="min-price">Preço Min</label>
-			<input type="number" id="min-price" placeholder="Enter min price">
-
-			<label for="max-price">Preço Max</label>
-			<input type="number" id="max-price" placeholder="Enter max price">
-
-			<label for="dimensions">Dimensoes</label>
-			<input type="number" id="dimensions" placeholder="Enter dimensions">
-
-			<button type="submit">Search</button>
-		</form>
+				<ul>
+				  <li><a href="./index.html">Home</a></li>
+				  <li><a href="Sobrenos.html">Sobre nos</a></li>
+				  <li><a href="#">Contactos</a></li>
+				</ul>
+			  </div>
+              <main>
+                <h1></h1>
         
-
-		<!-- Lista dos imoveis -->
-	<div class="container">
-		<form action="javascript:listarPropriedade()">
-			<div class="card">
-			  <div class="overlay">
-				<img src="https://images.unsplash.com/photo-1501080254287-69204825cf5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODB8fGhvdXNlJTIwaW4lMjBsaXNib258ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="home">
-				<div class="middle">
-				  <div class="text">Ver mais</div>
-				</div>
-			  </div>
-			  <div class="info">
-				<h3>Duplex nos Olivais</h3>
-				<p class="description">Enchanting one bedrooms, one bath home with specious one bedroom and ...</p>
-				<div class="wrapper">
-				  <div>
-					<h4>Quartos</h4>
-					<p><i class="fa-solid fa-bed"></i> 3</p>
-				  </div>
-				  <div>
-					<h4>Quartos de banho</h4>
-					<p><i class="fa-solid fa-shower"></i> 1.5</p>
-				  </div>
-				  <div>
-					<h4>Area</h4>
-					<p><i class="fa-solid fa-chart-area"></i> 1300 sq</p>
-				  </div>
-				</div>
-				<p class="price">Para arrendar: <span>€ 1500</span></p>
-			  </div>
-			</div>
-			<div class="card">
-			  <div class="overlay">
-				<img src="https://images.unsplash.com/photo-1448630360428-65456885c650?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cGVudCUyMGhvdXNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="villa">
-				<div class="middle">
-				  <div class="text">Ver mais</div>
-				</div>
-			  </div>
-			  <div class="info">
-				<h3>Penthouse no centro de Lisboa</h3>
-				<p class="description">Enchanting two bedrooms, two bath home with specious one bedroom and ...</p>
-				<div class="wrapper">
-				  <div>
-					<h4>Quartos</h4>
-					<p><i class="fa-solid fa-bed"></i> 5</p>
-				  </div>
-				  <div>
-					<h4>Quartos de banho</h4>
-					<p><i class="fa-solid fa-shower"></i> 4.5</p>
-				  </div>
-				  <div>
-					<h4>Area</h4>
-					<p><i class="fa-solid fa-chart-area"></i> 5300 sq</p>
-				  </div>
-				</div>
-				<p class="price">A venda: <span>€ 1200</span></p>
-			  </div>
-			</div>
-			<div class="card">
-			  <div class="overlay hot">
-				<img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="villa">
-				<div class="middle">
-				  <div class="text">Ver mais</div>
-				</div>
-			  </div>
-			  <div class="info">
-				<h3>Moradia em Cascais</h3>
-				<p class="description">Enchanting three bedrooms, three bath home with specious one bedroom and ...</p>
-				<div class="wrapper">
-				  <div>
-					<h4>Quartos</h4>
-					<p><i class="fa-solid fa-bed"></i> 3</p>
-				  </div>
-				  <div>
-					<h4>Quartos de banho</h4>
-					<p><i class="fa-solid fa-shower"></i> 3</p>
-				  </div>
-				  <div>
-					<h4>Area</h4>
-					<p><i class="fa-solid fa-chart-area"></i> 1200 sq</p>
-				  </div>
-				</div>
-				<p class="price"> Para arrendar: <span>€ 850.000</span></p>
-			  </div>
-			</div>
-		  </div>
-		  <div class="container">
-			<div class="card">
-			  <div class="overlay">
-				<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bW9kZXJuJTIwaG9tZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="home">
-				<div class="middle">
-				  <div class="text">Ver mais</div>
-				</div>
-			  </div>
-			  <div class="info">
-				<h3>Vivenda em Charneca</h3>
-				<p class="description">Enchanting one bedrooms, one bath home with specious one bedroom and ...</p>
-				<div class="wrapper">
-				  <div>
-					<h4>Quartos</h4>
-					<p><i class="fa-solid fa-bed"></i>5</p>
-				  </div>
-				  <div>
-					<h4>Quartos de banho</h4>
-					<p><i class="fa-solid fa-shower"></i>3</p>
-				  </div>
-				  <div>
-					<h4>Area</h4>
-					<p><i class="fa-solid fa-chart-area"></i> 1300 sq</p>
-				  </div>
-				</div>
-				<p class="price">A venda: <span>€ 900.00</span></p>
-			  </div>
-			</div>
-			<div class="card">
-			  <div class="overlay">
-				<img src="https://images.unsplash.com/photo-1558036117-15d82a90b9b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="villa">
-				<div class="middle">
-				  <div class="text">Ver mais</div>
-				</div>
-			  </div>
-			  <div class="info">
-				<h3>Casa de campo</h3>
-				<p class="description">Enchanting two bedrooms, two bath home with specious one bedroom and ...</p>
-				<div class="wrapper">
-				  <div>
-					<h4>Quartos</h4>
-					<p><i class="fa-solid fa-bed"></i>7</p>
-				  </div>
-				  <div>
-					<h4>Quartos de banho</h4>
-					<p><i class="fa-solid fa-shower"></i> 5</p>
-				  </div>
-				  <div>
-					<h4>Area</h4>
-					<p><i class="fa-solid fa-chart-area"></i> 5300 sq</p>
-				  </div>
-				</div>
-				<p class="price">A venda: <span>€ 825.000</span></p>
-			  </div>
-			</div>
-			<div class="card">
-			  <div class="overlay hot">
-				<img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="villa">
-				<div class="middle">
-				  <div class="text">Ver mais</div>
-				</div>
-			  </div>
-			  <div class="info">
-				<h3>Moradia em Setubal</h3>
-				<p class="description">Enchanting three bedrooms, three bath home with specious one bedroom and ...</p>
-				<div class="wrapper">
-				  <div>
-					<h4>Quartos</h4>
-					<p><i class="fa-solid fa-bed"></i>4</p>
-				  </div>
-				  <div>
-					<h4>Casas de banho</h4>
-					<p><i class="fa-solid fa-shower"></i> 3</p>
-				  </div>
-				  <div>
-					<h4>Area</h4>
-					<p><i class="fa-solid fa-chart-area"></i> 1300 sq</p>
-				  </div>
-				</div>
-				<p class="price">A venda: <span>€ 900,000</span></p>
-			  </div>
-			</div>
-		  </div>
-
-		</form>  
-
-		<style>
+                <form>
+                    <label for="property-type">Property Type:</label>
+                    <select id="property-type">
+                        <option value="">All</option>
+                        <option value="house">House</option>
+                        <option value="apartment">Apartment</option>
+                    </select>
+        
+                    <label for="transaction-type">Transaction Type:</label>
+                    <select id="transaction-type">
+                        <option value="">All</option>
+                        <option value="sale">For Sale</option>
+                        <option value="rent">For Rent</option>
+                        <option value="buy">To Buy</option>
+                    </select>
+        
+                    <label for="property-age">Property Age:</label>
+                    <select id="property-age">
+                        <option value="">All</option>
+                        <option value="new">Brand New</option>
+                        <option value="used">Used</option>
+                    </select>
+                    <label for="location">Location:</label>
+                    <select id="location">
+                        <option value="">All</option>
+                        <option value="lisbon">Lisbon</option>
+                        <option value="porto">Porto</option>
+                    </select>
+                    <label for="typology">Tipologia</label>
+                    <select id="typology">
+                        <option value="">Todos</option>
+                        <option value="T1">T1</option>
+                        <option value="T2">T2</option>
+                        <option value="T3">T3</option>
+                        <option value="T4+">T4+</option>
+                    </select>
+                    
+        
+                    <label for="min-price">Preço Min</label>
+                    <input type="number" id="min-price" placeholder="Enter min price">
+        
+                    <label for="max-price">Preço Max</label>
+                    <input type="number" id="max-price" placeholder="Enter max price">
+        
+                    <label for="dimensions">Dimensoes</label>
+                    <input type="number" id="dimensions" placeholder="Enter dimensions">
+        
+                    <button type="submit">Search</button>
+                </form>
+			  
+			  <style>
 				.header {
-			  		background-color: #fff;
-			  		display: flex;
-			  		width: 100%;
-			  		align-items: center;
-			  		justify-content: space-between;
-			  		height: 70px;
-			  		padding: 0 20px;
+				  background-color: #ffffff;
+				  display: flex;
+				  justify-content: space-between;
+				  align-items: center;
+				  height: 70px;
+				  padding: 0 20px;
 				}
-
-				.header nav {
-					display: flex;
-					align-items: center;
-					gap: 10px;
-					color: black;
+			  
+				.logo {
+				  margin-right: auto;
 				}
-		  
-			
-		  
+			  
 				.user-icon {
-			  		position: relative;
-			 		cursor: pointer;
-			  		margin-top: 12px;
+				  position: relative;
+				  cursor: pointer;
 				}
-		  
+			  
 				.user-icon:hover .dropdown-content {
-			  		display: block;
+				  display: block;
 				}
-		  
+			  
 				.dropdown {
-			  		display: inline-block;
+				  display: inline-block;
 				}
-		  
+			  
 				.dropdown-content {
-			  		display: none;
-			  		position: absolute;
-			  		top: 100%;
-			  		right: 0;
-			  		background-color: #f9f9f9;
-			  		min-width: 160px;
-			  		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-			  		z-index: 1;
+				  display: none;
+				  position: absolute;
+				  top: 100%;
+				  right: 0;
+				  background-color: #ffffff;
+				  min-width: 160px;
+				  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+				  z-index: 1;
 				}
-		  
+			  
 				.dropdown-content a {
-			  		display: block;
-			  		color: #333;
-			  		padding: 10px;
-			  		text-decoration: none;
+				  display: block;
+				  color: black;
+				  padding: 10px;
+				  text-decoration: none;
 				}
-		  
+			  
 				.dropdown-content a:hover {
-			  		background-color: #ddd;
+				  background-color: #fffefe;
 				}
-		  
-				.nav ul {
-			  		list-style-type: none;
-			  		margin: 0;
-			 		 padding: 0;
-			  		display: flex;
-			  		align-items: center;
-			  		color: black;
+			  
+				ul {
+				  list-style-type: none;
+				  margin: 0;
+				  padding: 0;
+				  display: flex;
+				  align-items: center;
 				}
-		  
-				a {
-			  		margin-left: 10px;
-			  		text-decoration: none;
+			  
+				li {
+				  margin-left: 10px;
 				}
-		  
+			  
 				li a {
-			 	 	display: block;
-			  		color: rgb(0, 0, 0);
-			  		text-align: center;
-			  		padding: 14px 16px;
-			  		text-decoration: none;
+				  display: block;
+				  color: rgb(0, 0, 0);
+				  text-align: center;
+				  padding: 14px 16px;
+				  text-decoration: none;
 				}
-		  
+			  
 				li a:hover:not(.active) {
-			  		background-color: black;
+				  background-color: #ffffff;
 				}
-		  
+			  
 				img {
-			  		height: 30px;
+				  height: 30px;
 				}
 
 				.logo img{
@@ -367,7 +168,16 @@
 					height: 70px;
 					object-fit: cover;
 				}
-		</style>
+			  </style>
+     </header>
+	 <section class="listings">
+
+		<h1 class="heading">Listas</h1>
+	 
+		<div class="box-container"></div>
+	 
+	 </section>
+	 <script src="./javascripts/script2.js"></script>
+
 </body>
 </html>
-

@@ -36,7 +36,7 @@ router.post('', async function (req, res, next) {
         propriedade.comprada = req.body.comprada;
         propriedade.vendida = req.body.vendida;
         propriedade.imagem = req.body.imagem;
-        let result = await Propriedades.addpropriedade(propriedade);
+        let result = await Propriedades.addPropriedade(propriedade);
         res.status(result.status).send(result.result);
     } catch (err) {
         console.log(err);
@@ -91,6 +91,43 @@ router.get('/filter', async function (req, res, next){
     } catch (err) {
         console.log(err);
         res.status(500).send(err);
+    }
+});
+
+
+
+
+router.post('/', auth.verifyAuth, async function (req, res, next) {
+    try {
+      console.log("Add new propriedade");
+      const {
+        propertySize,
+        localizacao, 
+        freguesia, 
+        tipo,
+        saleRent, 
+        preco ,
+        dimensoes, 
+        descricao, 
+        imagem
+      } = req.body;
+  
+      const result = await Propriedade.addPropriedade(
+        propertySize,
+        localizacao, 
+        freguesia, 
+        tipo,
+        saleRent, 
+        preco ,
+        dimensoes, 
+        descricao, 
+        imagem
+      );
+  
+      res.status(result.status).send(result.result);
+    } catch (err) {
+      console.log(err);
+      res.status(500).send(err);
     }
 });
 

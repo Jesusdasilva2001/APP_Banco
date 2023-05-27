@@ -25,6 +25,7 @@ app.use("/api/utilizadores",utilizadoresRouter);
 app.use("/api/propriedade",propriedadeRouter);
 
 
+
 // when we don't find anything
 app.use((req, res, next) => {
   res.status(404).send({msg:"No resource or page found."});

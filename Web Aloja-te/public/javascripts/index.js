@@ -1,43 +1,36 @@
+async function index() {
+  try{
+    const propertyType = document.getElementById('property-type').value;
+    const tipologia = document.getElementById('tipologia').value;
+    const escolhaUmPais = document.getElementById('escolha-um-país').value;
+    const distrito = document.getElementById('distrito').value;
+    const concelho = document.getElementById('concelho').value;
+    const freguesia = document.getElementById('freguesia').value;
+    const objectivo = document.getElementById('objectivo').value;
+    const estado = document.getElementById('estado').value;
+    const price = document.getElementById('price').value;
+    const area = document.getElementById('area').value;
 
-/*function filterItems() {
-  const propriedadeType = document.getElementById("propriedadeType").value;
-  const price = document.getElementById("price").value;
-  const area = document.getElementById("area").value;
-  const tipologia = document.getElementById("tipologia").value;
-  const portugal = document.getElementById("portugal").value;
-  const distrito = document.getElementById("distrito").value;
-  const concelho = document.getElementById("concelho").value;
-  const freguesia = document.getElementById("freguesia").value;
-  const objectivo = document.getElementById("objectivo").value;
-  const estado = document.getElementById("estado").value;
-
-  const filters = {
-    propriedadeType,
-    price,
-    area,
-    tipologia,
-    portugal,
-    distrito,
-    concelho,
-    freguesia,
-    objectivo,
-    estado
-
-  };
-
-  const xhr = new XMLHttpRequest();
-  xhr.open("POST", "/api/filter", true);
-  xhr.setRequestHeader("Content-type", "application/json");
+    const msgDOM = document.getElementById("msgDOM");
   
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === XMLHttpRequest.Done) {
-      if (xhr.status === 200) {
-        const items = JSON.parse(xhr.responseText);
-      } else {
-        console.log("Error:" + xhr.status);
-      }
-    }
-  };
+    const url = `http://localhost:8080/search?propertyType=${propertyType}&tipologia=${tipologia}&escolhaUmPais=${escolhaUmPais}&distrito=${distrito}&concelho=${concelho}&freguesia=${freguesia}&objectivo=${objectivo}&estado=${estado}&price=${price}&area=${area}`;
 
-  xhr.send(JSON.stringify(filters));
-}*/
+    const encodedUrl = encodeURI(url);
+    const listarPropriedade = `<a href="${encodedUrl}">${encodedUrl}</a>`;
+
+    // Pedido ao servidor
+    // tratar resultado
+    console.log(listarPropriedade.html);
+    if (res.successful) {
+      msgDOM.textContent = "submete successfully";
+    } else {
+      msgDOM.textContent = "Was not able to submete this information";
+      window.location.pathname = "./listarPropriedade"; 
+    }        
+  }catch (err) {
+      console.log(err);
+      msgDOM.textContent = "An error occurred";   
+  }
+ 
+
+}

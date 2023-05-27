@@ -61,7 +61,8 @@ class Propriedade {
         try {
             //verificar se o filtro existe
             //select com os parametros dos filtros
-               let query = 'SELECT * FROM propriedades WHERE 1 = 1 ';
+            console.log(filters)
+               let query = 'SELECT * FROM propriedades WHERE  1 = 1 ';
                let params = [];
                let i = 1;
                if (filters.propriedadeType) {
@@ -102,7 +103,7 @@ class Propriedade {
                 }
                 if (filters.estado) {
                     query += `AND estado = $${i++}`;
-                    params.push(filters.estado)
+                    params.push(filters.estado);
                 }
             console.log(query);
             console.log(params);
@@ -137,19 +138,36 @@ class Propriedade {
         }
     }
 
-    static async addpropriedade(propriedade) {
-        try {
-           
-            let dbResult = await pool.query(
-                `Insert into propriedade(it_prop_id,it_type,it_apartment, it_rooms,it_bathroom, it_price, it_address, it_garages, it_area, it_coordenadas)
-                 values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)`, [propriedade.type, propriedade.apartment, propriedade.rooms, propriedade.bathroom, propriedade.price, propriedade.address, propriedade.garages, propriedade.area, propriedade.coordenadas, propriedade.alugada, propriedade.comprada, propriedade.vendida, propriedade.imagem]);
-            return {status:200, result: dbResult};
 
+
+    static async addPropriedade(prop) {
+        try {
+          const query = `
+          Insert into propriedade(it_prop_id,it_prop_Size, it_localizacao,it_freguesia, it_tipo, it_saleRent, it_preco, it_dimensoes, it_descricao, it_imagem)
+          values($1,$2,$3,$4,$5,$6,$7,$8,$9)
+            RETURNING *
+          `;
+          const dbResult = await pool.query(query, [prop.Size, prop.localizacao, prop.freguesia, prop.tipo, prop.saleRent, prop.preco, prop.dimensoes, prop.descricao, prop.imagem]);
+          const dbPropriedade = dbResult.rows[0];
+          const propriedade = new Propriedade(
+            dbPropriedade.Size,
+            dbPropriedade.localizacao,
+            dbPropriedade.freguesia,
+            dbPropriedade.tipo,
+            dbPropriedade.saleRent,
+            dbPropriedade.preco,
+            dbPropriedade.dimensoes,
+            dbPropriedade.descricao,
+            dbPropriedade.imagem
+          );
+          return { status: 200, result: propriedade };
         } catch (err) {
-            console.log(err);
-            return {status: 500, result: {msg: "Something went wrong."}};
+          console.log(err);
+          return { status: 500, result: { msg: 'Ocorreu um erro. Por favor, tente novamente.' } };
         }
+      
     }
+    
 }
 
 module.exports = Propriedade;

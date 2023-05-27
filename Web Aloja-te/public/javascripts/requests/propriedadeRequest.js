@@ -53,3 +53,15 @@ async function requestAddPropriedades(
         return { err: err};
     }
 }
+
+async function requestAddPropriedades() {
+    try {
+      const response = await fetch('/api/addPropriedade');
+      const result = await response.json();
+      return { successful: response.status === 200, data: result };
+    } catch (err) {
+      console.log(err);
+      return { err: err };
+    }
+  }
+

@@ -1,6 +1,4 @@
-window.onload = async function() {
-    //let filter = sessionStorage.getItem("filter");
-    //mandar objeto de filter    
+window.onload = async function() {   
     fetch ("http://localhost:8080/api/Propriedade").then(response => {
         response.json().then(propriedades => {
             populatePropriedades (propriedades); 
